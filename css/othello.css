@@ -1,0 +1,149 @@
+body {
+  font-family: Meiryo;
+}
+
+.floatleft {
+  float: left;
+}
+
+.clearfix {
+  overflow: hidden;
+  width: 1270px;
+}
+
+.main {
+  margin: 30px auto 0;
+}
+
+#board {
+  overflow: hidden;
+  width: 560px;
+  height: 560px;
+  border: 10px solid #000000;
+  border-radius: 15px;
+  margin: 0 30px 0 30px;
+}
+
+#chat {
+  top: 50px;
+  left: 1000px;
+}
+
+#typewriter {
+  margin-top: 30px;
+  height: 60px;
+  border: none;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+#title {
+  text-align: center;
+  font-size: 5rem;
+  height: 300px;
+  margin-top: 80px;
+}
+
+.square {
+  width: 68px;
+  height: 68px;
+  border: 1px solid #000000;
+  float: left;
+  background-color: green;
+  cursor: pointer;
+}
+
+.square:hover {
+  background-color: yellowgreen;
+}
+
+.nyanman {
+  width: 180px;
+  position: absolute;
+  top: 70%;
+  left: 85%;
+}
+
+.button {
+  cursor: pointer;
+  color: #ff0000;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 20px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  height: 35px;
+  line-height: 35px;
+  background-color: #eeeeee;
+}
+
+#pass {
+  top: 440px;
+  left: 120px;
+}
+
+#return {
+  top: 480px;
+  left: 120px;
+}
+
+#chat_focus {
+  top: 520px;
+  left: 120px;
+}
+
+#reset {
+  top: 560px;
+  left: 120px;
+}
+
+#buttons {
+  margin-top: 30px;
+}
+
+#tutorial {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  top: 50px;
+  left: 30px;
+  width: 250px;
+  height: 220px;
+  padding: 15px 25px 15px 25px;
+  background-color: pink;
+  font-size: 0.9rem;
+}
+
+dt {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#tutorial img {
+  width: 100px;
+}
+
+#chat_note {
+  width: 300px;
+  height: 320px;
+  background-color: #eeeeee;
+  text-align: center;
+}
+
+#order_notice {
+  margin-top: 20px;
+  color: red;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+#notice {
+  width: 302px;
+}
+
+#result {
+  top: 48px;
+  left: 65px;
+}

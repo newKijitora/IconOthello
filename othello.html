@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>対戦型オセロゲーム</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/othello.css">
+  <script src="js/init.js"></script>
+  <script src="js/othello.js"></script>
+</head>
+<body>
+  <div class="main clearfix">
+    <div id='notice' class="floatleft">
+      <div id="tutorial">
+        <h1>ゲームの説明</h1>
+        <dl>
+          <dt>自分の石を置く</dt>
+          <dd>マス目をクリック</dd>
+          <dt>ゲームのやりなおし</dt>
+          <dd>「リセット」ボタンをクリック</dd>
+        </dl>
+      </div>
+      <div id="buttons">
+        <div id="pass" class="button" onclick="passStone();">
+        <span>パス</span>
+      </div>
+      <div id="reset" class="button" onclick="resetGame();">
+        <span>リセット</span>
+      </div>
+      <div id='order_notice' class='relative'><p id='result' class='absolute'></p><img src='../images/talking.png''></div>
+    </div>
+  </div>
+  <div class='floatleft'>
+    <div id='board' class='clearfix'></div>
+  </div>
+  <div class="absolute nyanman">
+    <a href="../myportfolio.html"><img src="images/nyanman.png"></a>
+  </div>
+</body>
+</html>
