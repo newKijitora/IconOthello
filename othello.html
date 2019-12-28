@@ -1,16 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>対戦型オセロゲーム</title>
+  <meta charset="utf-8">
+  <title>アイコンでオセロ！</title>
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/othello.css">
   <script src="js/init.js"></script>
   <script src="js/othello.js"></script>
 </head>
 <body>
-  <div class="main clearfix">
-    <div id='notice' class="floatleft">
+  <!-- ゲームのボード -->
+  <section>
+    <div id='board' class='clearfix'></div>
+  </section>
+  <!-- インフォメーション -->
+  <section class="main">
+    <section id='notice'>
       <div id="tutorial">
         <h1>ゲームの説明</h1>
         <dl>
@@ -27,14 +32,8 @@
       <div id="reset" class="button" onclick="resetGame();">
         <span>リセット</span>
       </div>
-      <div id='order_notice' class='relative'><p id='result' class='absolute'></p><img src='../images/talking.png''></div>
+      <div id='order_notice' class='relative'><p id='result' class='absolute'></p><img src='../images/talking.png'></div>
     </div>
-  </div>
-  <div class='floatleft'>
-    <div id='board' class='clearfix'></div>
-  </div>
-  <div class="absolute nyanman">
-    <a href="../myportfolio.html"><img src="images/nyanman.png"></a>
-  </div>
+  </section>
 </body>
 </html>

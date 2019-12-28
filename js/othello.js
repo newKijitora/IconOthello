@@ -1,25 +1,40 @@
 /******************** グローバル変数 ********************/
 
-var i;
-var player; // 自分のプレイヤー番号
-var opponent; // 相手のプレイヤー番号
-var squares = []; // マス目と石を描画する<canvas>要素の配列
-var stone_array = []; // 描画用の石の配列
-var check_array = []; // 検索用の石の配列
-for (i = 0; i < 64; stone_array[i++] = 0); // 描画用の石の配列の初期化
-for (i = 0; i < 64; check_array[i++] = 0); // 検索用の石の配列の初期化
-var stones = 4; // 石の総数
-var pass_stone = 0; // パスの数
-var score = 0; // ゲーム終了時の自分の石の数
-var reader; // 盤面の読み込みタイマーID
+// 使用する定数
+const SQUARES_LENGTH = 64;
+const SQUARE_WIDTH = 68;
+const SQUARE_HEIGHT = 68;
+
+let player; // 自分のプレイヤー番号
+let opponent; // 相手のプレイヤー番号
+
+// マス目と石を描画する<canvas>要素の配列と初期化
+let squares = [];
+for (let i = 0; i < SQUARES_LENGTH; squares[i++] = undefined);
+
+// 描画用の石の配列と初期化
+let stone_array = [];
+for (let i = 0; i < SQUARES_LENGTH; stone_array[i++] = 0);
+
+// 描画用の石の配列と初期化
+let check_array = [];
+for (let i = 0; i < SQUARES_LENGTH; check_array[i++] = 0);
+
+let stones = 4; // 石の総数
+let pass_stone = 0; // パスの数
+
+let score = 0; // ゲーム終了時の自分の石の数
+let reader; // 盤面の読み込みタイマーID
+
 /* テキストを準備 */
-var text = {
+const text = {
   A : 'あなたの番です。',
   B : '相手の番です。',
   C : '勝ちました！',
   D : '負けました！',
   E : '引き分けです！'
 }
+
 /* 石をはさむメソッド用引数のセット */
 var between_property = {
   between_right : '8 - mystone % 8,100,1,1,1', // 右検索用の引数セット
@@ -36,40 +51,55 @@ var between_property = {
 
 // プレイに参加する順番でプレイヤーを設定
 function createPlayer() {
-  var result = document.getElementById('result');
-  var request;
-  request = getXHR(); // ユーティリティ関数
+  // XHRオブジェクトの取得
+  const request = getXHR();
+
+  // コールバック
   request.onreadystatechange = function() {
     if (request.readyState == 4 && request.status == 200) {
+      // プレイヤーと相手の設定
       player = parseInt(request.responseText);
       opponent = player == 1 ? 2 : 1;
+
       stone_array[28] = 1;
       stone_array[35] = 1;
       stone_array[27] = 2;
       stone_array[36] = 2;
+
+      const result = document.getElementById("result");
       result.innerHTML = player == 1 ? text['A'] : text['B'];
+      
       checkArray();
     }
   };
-  request.open('POST', 'php/player.php', true);
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf8');
+
+  // リクエストの開始
+  request.open("POST", "php/player.php", true);
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf8");
   request.send('request=order');
 }
+
 // 盤面を生成する
 function createBoard() {
-  var board;
-  var i;
-  board = document.getElementById('board');
-  for (i = 0; i < 64; i++) {
-    squares[i] = document.createElement('canvas');
-    squares[i].setAttribute('class', 'square');
-    squares[i].setAttribute('id', 'square' + i);
-    squares[i].setAttribute('width', '68');
-    squares[i].setAttribute('height', '68');
+  // 盤面の生成
+  const board = document.getElementById("board");
+  
+  // マス目の生成
+  for (let i = 0; i < SQUARES_LENGTH; i++) {
+    // canvas要素の取得
+    squares[i] = document.createElement("canvas");
+    // 幅と高さを設定
+    squares[i].width = SQUARE_WIDTH;
+    squares[i].height = SQUARE_HEIGHT;
+    
+    squares[i].setAttribute("class", "square");
+    squares[i].setAttribute("id", "square" + i);
     squares[i].setAttribute('onclick', 'putStone(this)');
+    
     board.appendChild(squares[i]);
   }
 }
+
 // クリックで石を置く
 function putStone(obj) {
   if (stones % 2 == (player - 1)) {
