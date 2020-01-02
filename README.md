@@ -2,4 +2,4 @@
 Othello game to enjoy with icons.
 
 # Demo
-newkijitora.com/IconOthello/
+[IconOthello]: https://newkijitora.com/IconOthello/ "IconOthello"
