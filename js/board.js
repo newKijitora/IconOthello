@@ -3,6 +3,9 @@
 class Board {
   // コンストラクタ
   constructor(player) {
+    // 盤面用の要素を取得
+    this.element = document.getElementById("board");
+    
     // 使用する定数
     this.squareLength = 64;
     this.squareWidth = 68;
@@ -24,9 +27,6 @@ class Board {
     // マス目の配列の初期化
     this.squares = [];
     for (let i = 0; i < this.squareLength; this.squares[i++] = undefined);
-
-    // 盤面用の要素を取得
-    this.element = document.getElementById("board");
     
     // 盤面の生成
     this.createBoard();
@@ -100,10 +100,10 @@ class Board {
         
         switch (_this.player.playerNumber) {
           case 1:
-            result.innerHTML = (_this.stones - _this.passStone) % 2 == 0 ? text['A'] : text['B'];
+            //result.innerHTML = (_this.stones - _this.passStone) % 2 == 0 ? text['A'] : text['B'];
             break;
           case 2:
-            result.innerHTML = (_this.stones - _this.passStone) % 2 == 1 ? text['A'] : text['B'];
+            //result.innerHTML = (_this.stones - _this.passStone) % 2 == 1 ? text['A'] : text['B'];
             break;
         }
 
@@ -116,9 +116,9 @@ class Board {
             }
 
             if (_this.player.score == 32) {
-              result.innerHTML = text['E'];
+              //result.innerHTML = text['E'];
             } else {
-              result.innerHTML = (_this.player.score > 32) ? text['C'] : text['D'];
+              //result.innerHTML = (_this.player.score > 32) ? text['C'] : text['D'];
             }
 
             // 処理を停止

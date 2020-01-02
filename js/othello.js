@@ -16,16 +16,16 @@ class Othello {
     this.reader = 0;
 
     // リセットボタンの用意
-    this.reset = document.getElementById("reset");
-    this.reset.addEventListener("click", function() {
-      this.resetGame();
-    }, false);
+    // this.reset = document.getElementById("reset");
+    // this.reset.addEventListener("click", function() {
+    //   this.resetGame();
+    // }, false);
 
     // パスボタンの用意
-    this.pass = document.getElementById("pass");
-    this.pass.addEventListener("click", function() {
-      this.passStone();
-    }, false);
+    // this.pass = document.getElementById("pass");
+    // this.pass.addEventListener("click", function() {
+    //   this.passStone();
+    // }, false);
 
     // サーバーへのリクエスト
     this.createPlayer();
@@ -52,8 +52,8 @@ class Othello {
         _this.board.stoneArray[27] = 2;
         _this.board.stoneArray[36] = 2;
   
-        const result = document.getElementById("result");
-        result.innerHTML = _this.player.playerNumber == 1 ? text['A'] : text['B'];
+        // const result = document.getElementById("result");
+        // result.innerHTML = _this.player.playerNumber == 1 ? text['A'] : text['B'];
         
         _this.board.searchArray();
 
