@@ -2,4 +2,4 @@
 Othello game to enjoy with icons.
 
 # Demo
-[IconOthello](https://newkijitora.com/IconOthello/){:target="_blank"}.
+<a href="https://newkijitora.com/IconOthello/" target="_blank">IconOthello</a>
